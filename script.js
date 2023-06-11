@@ -8,9 +8,9 @@ let searchEngine = 'bing';
 
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-        console.log(searchEngine);
+        // console.log(searchEngine);
         const searchTerm = encodeURIComponent(searchInput.value);
-        const searchURL = `https://www.google.com/search?q=${searchTerm}`;
+        const searchURL = searchEngine === 'bing' ? `https://www.bing.com/search?q=${searchTerm}` : `https://www.google.com/search?q=${searchTerm}`;
 
         window.location.href = searchURL;
     }
