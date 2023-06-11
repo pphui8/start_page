@@ -46,7 +46,7 @@ body {
     box-shadow: rgba(0,0,0,.2) 0 0 8px 4px;
     transition: all 0.7s ease-in-out;
     width: 230px;
-    max-width: 440px;
+    max-width: 500px;
 }
 
 .search-container:hover {
@@ -71,12 +71,12 @@ body {
 
 input::-ms-input-placeholder {
     text-align: center;
-    color: #353535;
+    color: #272727;
 }
 
 input::-webkit-input-placeholder {
     text-align: center;
-    color: #353535;
+    color: #272727;
 }
 
 .search-engine {
