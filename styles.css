@@ -157,24 +157,43 @@ svg {
     opacity: 0;
 }
 
-.history-selector{
-    backdrop-filter: blur(8px);
-    background-color: #ffffff4a;
+.history-selector {
+    backdrop-filter: blur(4px);
+    background-color: #ffffff60;
     border-radius: 17px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    overflow: hidden;
 }
 
 .history-selector li{
+    box-sizing: content-box;
+    height: 24px;
     width: 100%;
-    padding: 5px;
-    padding-left: 20px;
+    padding-top: 6px;
+    padding-left: 25px;
     font-size: 14px;
     color: #1e1e1e;
     transition: padding-left 0.2s ease-in-out;
 }
 
+.history-selector li:first-child {
+    height: 24px;
+    padding-top: 8px;
+}
+
+.history-selector li:last-child {
+    height: 18px;
+    padding-bottom: 7px;
+}
+
 .history-selector li:hover {
-    padding-left: 28px;
+    padding-left: 36px;
     background-color: #ffffff6a;
+}
+
+.translate-item {
+    
+}
+
+.default-item {
+
 }
