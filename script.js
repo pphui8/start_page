@@ -24,11 +24,11 @@ let localHistoryItems = [];
 
 // when window is loaded
 window.addEventListener("load", () => {
-
     // initialize history items from local storage
-    localHistoryItems = JSON.parse(localStorage.getItem("historyItems"));
-    console.log(localHistoryItems);
+    // localHistoryItems = JSON.parse(localStorage.getItem("historyItems"));
+    // console.log(localHistoryItems);
 
+    localHistoryItems.push(...["js限制", "ts", "怎么去黑头"]);
 });
 
 searchInput.addEventListener("keydown", (event) => {
@@ -48,14 +48,14 @@ searchInput.addEventListener("keydown", (event) => {
     }
 });
 
-searchInput.addEventListener("keyup", () => {
+searchInput.addEventListener("input", () => {
   if (searchInput.value !== "" && searchInput.value !== null) {
     showHistory();
-    
   } else if (event.key === "Backspace" && searchInput.value === "") {
     historyContainer.setAttribute("style", "visibility: hidden; opacity: 0");
   }
 });
+
 
 document.addEventListener("click", (event) => {
   historyContainer.setAttribute("style", "visibility: hidden; opacity: 0");
@@ -91,9 +91,10 @@ searchIconContainer.addEventListener("click", () => {
 const search = () => {
   const searchString = searchInput.value.trim();
   // store search string into local storage
-  
-
-  
+  localHistoryItems.append(searchString);
+  console.log(localHistoryItems);
+  // localStorage.setItem("historyItems", JSON.stringify(localHistoryItems));
+    
   const searchTerm = searchString.split(/\s+/);
   encodeURI(searchTerm);
 
@@ -110,6 +111,7 @@ const search = () => {
 const showHistory = () => {
   historySelector.innerHTML = "";
   historyContainer.setAttribute("style", "visibility: visible; opacity: 1");
+  searchEngineUrl = searchEngine === "bing" ? "www.bing.com" : "www.google.com";
 
   // // 1. add a <li> to history selector (Todo)
   // const ele = document.createElement("li");
@@ -133,7 +135,17 @@ const showHistory = () => {
   });
 
   // 3. insert history items from local storage
-  if (localHistoryItems == null) {
-    console.log("abc");
-  }
+  const matchedLocalHistory = localHistoryItems.filter((item) => {
+    return item.includes(searchInput.value);
+  });
+
+  // insert into history selector
+  matchedLocalHistory.forEach((item) => {
+    const ele = document.createElement("li");
+    ele.addEventListener("click", () => {
+      window.location.href = `https://${searchEngineUrl}/search?q=${item}`;
+    });
+    ele.innerHTML = `${item}`;
+    historySelector.append(ele);
+  });
 };
