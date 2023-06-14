@@ -48,6 +48,12 @@ searchInput.addEventListener("keydown", (event) => {
     }
 });
 
+searchInput.addEventListener("keyup", (event) => {
+  if(event.key === 'Backspace' && searchInput.value === '') {
+    historyContainer.setAttribute("style", "visibility: hidden; opacity: 0");
+  }
+});
+
 searchInput.addEventListener("input", () => {
   if (searchInput.value !== "" && searchInput.value !== null) {
     showHistory();
@@ -85,7 +91,6 @@ searchEngineSelect.addEventListener("click", () => {
 searchIconContainer.addEventListener("click", () => {
   search();
 });
-
 
 // functions
 const search = () => {
