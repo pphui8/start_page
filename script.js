@@ -17,6 +17,8 @@ const historyContainer = document.getElementById("history-container");
 
 const historySelector = document.getElementById("history-selector");
 
+const searchIconContainer = document.getElementById("search-icon-container");
+
 let searchEngine = "bing";
 let localHistoryItems = [];
 
@@ -48,34 +50,7 @@ searchInput.addEventListener("keydown", (event) => {
 
 searchInput.addEventListener("keyup", () => {
   if (searchInput.value !== "" && searchInput.value !== null) {
-    historySelector.innerHTML = "";
-    historyContainer.setAttribute("style", "visibility: visible; opacity: 1");
-
-    // // 1. add a <li> to history selector (Todo)
-    // const ele = document.createElement("li");
-
-    // 2. insert default history items
-    const matchedHistory = defaultHistory.filter((item) => {
-      const key = Object.keys(item)[0];
-      return key.includes(searchInput.value);
-    });
-
-    // insert into history selector
-    matchedHistory.forEach((item) => {
-      const key = Object.keys(item)[0];
-      const value = item[key];
-      const ele = document.createElement("li");
-      ele.addEventListener("click", () => {
-        window.location.href = value;
-      });
-      ele.innerHTML = `${key}`;
-      historySelector.append(ele);
-    });
-
-    // 3. insert history items from local storage
-    if (localHistoryItems == null) {
-      console.log("abc");
-    }
+    showHistory();
     
   } else if (event.key === "Backspace" && searchInput.value === "") {
     historyContainer.setAttribute("style", "visibility: hidden; opacity: 0");
@@ -106,3 +81,59 @@ searchEngineSelect.addEventListener("click", () => {
     bingIcon.setAttribute("style", "display: inline-block");
   }
 });
+
+searchIconContainer.addEventListener("click", () => {
+  search();
+});
+
+
+// functions
+const search = () => {
+  const searchString = searchInput.value.trim();
+  // store search string into local storage
+  
+
+  
+  const searchTerm = searchString.split(/\s+/);
+  encodeURI(searchTerm);
+
+  const searchParam = searchTerm.join("+");
+
+  const searchURL =
+    searchEngine === "bing"
+      ? `https://www.bing.com/search?q=${searchTerm}`
+      : `https://www.google.com/search?q=${searchTerm}`;
+
+  window.location.href = searchURL;
+};
+
+const showHistory = () => {
+  historySelector.innerHTML = "";
+  historyContainer.setAttribute("style", "visibility: visible; opacity: 1");
+
+  // // 1. add a <li> to history selector (Todo)
+  // const ele = document.createElement("li");
+
+  // 2. insert default history items
+  const matchedHistory = defaultHistory.filter((item) => {
+    const key = Object.keys(item)[0];
+    return key.includes(searchInput.value);
+  });
+
+  // insert into history selector
+  matchedHistory.forEach((item) => {
+    const key = Object.keys(item)[0];
+    const value = item[key];
+    const ele = document.createElement("li");
+    ele.addEventListener("click", () => {
+      window.location.href = value;
+    });
+    ele.innerHTML = `${key}`;
+    historySelector.append(ele);
+  });
+
+  // 3. insert history items from local storage
+  if (localHistoryItems == null) {
+    console.log("abc");
+  }
+};

@@ -78,11 +78,13 @@ li {
 input::-ms-input-placeholder {
     text-align: center;
     color: #272727;
+    user-select: none;
 }
 
 input::-webkit-input-placeholder {
     text-align: center;
     color: #272727;
+    user-select: none;
 }
 
 .search-engine {
