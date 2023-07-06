@@ -9,42 +9,29 @@ const defaultHistory = [
 const searchContainer = document.getElementById("search-container");
 const searchEngineSelect = document.getElementById("engine-icon-container");
 const searchInput = document.getElementById("search-input");
-
 const googleIcon = document.getElementById("googleIcon");
 const bingIcon = document.getElementById("bingIcon");
-
 const historyContainer = document.getElementById("history-container");
-
 const historySelector = document.getElementById("history-selector");
-
 const searchIconContainer = document.getElementById("search-icon-container");
 
 let searchEngine = "bing";
+// [{searchString: Date.now()}]
 let localHistoryItems = [];
 
 // when window is loaded
 window.addEventListener("load", () => {
     // initialize history items from local storage
-    // localHistoryItems = JSON.parse(localStorage.getItem("historyItems"));
-    // console.log(localHistoryItems);
+    localHistoryItems = JSON.parse(localStorage.getItem("historyItems"));
 
-    localHistoryItems.push(...["js限制", "ts", "怎么去黑头"]);
+    if (localHistoryItems === null || localHistoryItems === undefined) {
+      localHistoryItems = [];
+    }
 });
 
 searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        const searchTerm = searchInput.value.trim().split(/\s+/);
-
-        encodeURI(searchTerm);
-
-        const searchParam = searchTerm.join("+");
-
-        const searchURL =
-        searchEngine === "bing"
-            ? `https://www.bing.com/search?q=${searchTerm}`
-            : `https://www.google.com/search?q=${searchTerm}`;
-
-        window.location.href = searchURL;
+      search();
     }
 });
 
@@ -95,12 +82,43 @@ searchIconContainer.addEventListener("click", () => {
 // functions
 const search = () => {
   const searchString = searchInput.value.trim();
-  // store search string into local storage
-  localHistoryItems.append(searchString);
-  console.log(localHistoryItems);
-  // localStorage.setItem("historyItems", JSON.stringify(localHistoryItems));
+  // if redundent
+  
+  const isRedundent = localHistoryItems.find(obj => {
+    return Object.keys(obj)[0] === searchString
+  });
+
+  const isRedundentStatic = defaultHistory.find((obj) => {
+    return Object.keys(obj)[0] === searchString;
+  });
+
+  if(isRedundent === undefined && isRedundentStatic === undefined ) {
+    const curHistoryItem = {};
+    curHistoryItem[searchString] = Date.now();
+    localHistoryItems.push(curHistoryItem);
+
+    // if longer than 500, trim the formal one
+    if(localHistoryItems.length >= 500) {
+      localHistoryItems.shift();
+    }
+    
+    localStorage.setItem("historyItems", JSON.stringify(localHistoryItems));
+  }
     
   const searchTerm = searchString.split(/\s+/);
+  encodeURI(searchTerm);
+  const searchParam = searchTerm.join("+");
+
+  const searchURL =
+    searchEngine === "bing"
+      ? `https://www.bing.com/search?q=${searchTerm}`
+      : `https://www.google.com/search?q=${searchTerm}`;
+
+  window.location.href = searchURL;
+};
+
+const searchWithItem = (searchTerms) => {
+  const searchTerm = searchTerms.split(/\s+/);
   encodeURI(searchTerm);
 
   const searchParam = searchTerm.join("+");
@@ -141,16 +159,19 @@ const showHistory = () => {
 
   // 3. insert history items from local storage
   const matchedLocalHistory = localHistoryItems.filter((item) => {
-    return item.includes(searchInput.value);
+    const key = Object.keys(item)[0];
+    return key.includes(searchInput.value);
   });
 
   // insert into history selector
   matchedLocalHistory.forEach((item) => {
+    const key = Object.keys(item)[0];
+    const value = item[key];
     const ele = document.createElement("li");
     ele.addEventListener("click", () => {
-      window.location.href = `https://${searchEngineUrl}/search?q=${item}`;
+      searchWithItem(key);
     });
-    ele.innerHTML = `${item}`;
+    ele.innerHTML = `${key}`;
     historySelector.append(ele);
   });
 };
