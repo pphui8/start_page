@@ -1,3 +1,7 @@
+/*
+customize your own hitstory item here
+{search string: "target address"}
+*/
 const defaultHistory = [
   { github: "https://github.com/pphui8" },
   { pphui8: "https://pphui8.com" },

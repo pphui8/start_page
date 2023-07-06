@@ -1,77 +1,69 @@
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+<a name="readme-top"></a>
+
+<div align="center">
+<img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
+<img src="https://img.shields.io/badge/HTML-CSS-blue" alt="MIT License" />
+<img src="https://img.shields.io/badge/Web-Static-pink" alt="MIT License" />
+<img src="https://img.shields.io/badge/Online-LocalHost-red" alt="MIT License" />
+</div>
 
 
-
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">huihui start</h3>
 
   <p align="center">
-    huhui start is a lightweight and easy-to-use start page for your web browser.
+    - huhui start is a lightweight static page for your web browser. -
     <br />
     <a href="https://pphui8.github.io/start_page">View Demo</a>
   </p>
 </div>
 
-<!-- ABOUT THE PROJECT -->
+
+---
+
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-<!-- GETTING STARTED -->
+---
+
+## Features
+1. static and deploy locally.
+2. no needs of network.
+3. custom backgournd and ~~enjoy your wife~~.
+4. search suggetion (auto memorize locally).
+5. press `browser logo` to change search engine (bing and chrome only).
+5. no needs of any environment and free from memory consumption.
+
+---
+
 ## Getting Started
+- To use this project locally, you can download this project to your computer using `git` or download `ZIP` directly.
+```ssh
+git clone git@github.com:pphui8/start_page.git
+```
+- Open your browser and input the ```index.html``` file address on your search bar.
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+- To change the background, replace `bk.jpg` to any picture you like!!
 
-### Installation
+- Customize default suggetion item on `./script.js`
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+---
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+## Browser Settings
+To use this conviently, you will need to do some modification on your browser. _(I used chrome for demostration)_  
+1. set this as your start page  
+> open `settings` -> `On startup` -> select `Open a specific page or set of pages` -> `Add a new page` -> `input the address of index.html`
+2. <b style="color:red">important!!</b> Turn off `Sync` to make sure chrome won\`t change all of your devices.  
+> `You and Google` -> `Sync and Google services` -> `Manage what you sync` -> `Customize sync` -> Turn off `Settings`
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### optional
+1. shortcut button
+> `Appearance` -> `Show home button` -> customize and input your `index.html` address
 
+---
 
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
