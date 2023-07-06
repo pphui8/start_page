@@ -43,7 +43,7 @@
 ```ssh
 git clone git@github.com:pphui8/start_page.git
 ```
-- Open your browser and input the ```index.html``` file address on your search bar.
+- Open your browser and input the `index.html file address` on your search bar.
 
 - To change the background, replace `bk.jpg` to any picture you like!!
 
