@@ -69,4 +69,6 @@ To use this conviently, you will need to do some modification on your browser. _
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
+default background: https://pixabay.com/illustrations/ai-generated-girl-umbrella-sea-7915834/
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
