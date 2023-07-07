@@ -30,12 +30,12 @@
 ---
 
 ## Features
-1. static and deploy locally.
-2. no needs of network, not advertisment.
-3. custom backgournd ~~and enjoy your wife~~.
-4. search suggetion (auto memorize locally).
-5. press `browser logo` to change search engine (bing and google only).
-6. no needs of any environment and free from memory consumption.
+1. Static and deploy locally.
+2. No need for network and no advertisements.
+3. Customize background ~~and enjoy your wife~~.
+4. Search suggetions (auto memorized locally).
+5. Press `browser logo` to change the search engine (bing and google only).
+6. No needs for any additional environment and free from memory consumption.
 
 ---
 
@@ -53,8 +53,8 @@ git clone git@github.com:pphui8/start_page.git
 ---
 
 ## Browser Settings
-To use this conviently, you will need to do some modification on your browser. _(I used chrome for demostration)_  
-1. set this as your start page  
+To use this conveniently, you will need to do some modifications to your browser. _(I used chrome for demostration)_  
+1. set this page as your start page  
 > open `settings` -> `On startup` -> select `Open a specific page or set of pages` -> `Add a new page` -> `input the address of index.html`
 2. <b style="color:red">important!!</b> Turn off `Sync` to make sure chrome won\`t change all of your devices.  
 > `You and Google` -> `Sync and Google services` -> `Manage what you sync` -> `Customize sync` -> Turn off `Settings`
