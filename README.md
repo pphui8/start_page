@@ -1,19 +1,20 @@
 <a name="readme-top"></a>
 
 <div align="center">
-<img src="https://img.shields.io/badge/license-MIT-green" alt="MIT License" />
-<img src="https://img.shields.io/badge/HTML-CSS-blue" alt="MIT License" />
-<img src="https://img.shields.io/badge/Web-Static-pink" alt="MIT License" />
-<img src="https://img.shields.io/badge/Online-LocalHost-red" alt="MIT License" />
+<img src="https://img.shields.io/badge/license-MIT-green" />
+<img src="https://img.shields.io/badge/HTML-CSS-blue" />
+<img src="https://img.shields.io/badge/Web-Static-pink" />
+<img src="https://img.shields.io/badge/Online-LocalHost-red" />
 </div>
 
 
 <br />
 <div align="center">
+  <img src="./favicon.ico" height=50 />
   <h3 align="center">huihui start</h3>
 
   <p align="center">
-    - huhui start is a lightweight static page for your web browser. -
+    - huhui start is a lightweight static page for web browser. -
     <br />
     <a href="https://pphui8.github.io/start_page">View Demo</a>
   </p>
@@ -24,16 +25,16 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![screen shot](./screenshot.png)
 
 ---
 
 ## Features
 1. static and deploy locally.
 2. no needs of network.
-3. custom backgournd and ~~enjoy your wife~~.
+3. custom backgournd ~~and enjoy your wife~~.
 4. search suggetion (auto memorize locally).
-5. press `browser logo` to change search engine (bing and chrome only).
+5. press `browser logo` to change search engine (bing and google only).
 5. no needs of any environment and free from memory consumption.
 
 ---
