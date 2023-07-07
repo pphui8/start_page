@@ -31,11 +31,11 @@
 
 ## Features
 1. static and deploy locally.
-2. no needs of network.
+2. no needs of network, not advertisment.
 3. custom backgournd ~~and enjoy your wife~~.
 4. search suggetion (auto memorize locally).
 5. press `browser logo` to change search engine (bing and google only).
-5. no needs of any environment and free from memory consumption.
+6. no needs of any environment and free from memory consumption.
 
 ---
 
