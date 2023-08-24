@@ -48,7 +48,7 @@ git clone git@github.com:pphui8/start_page.git
 
 - To change the background, replace `bk.jpg` to any picture you like!!
 
-- Customize default suggetion item on `./script.js`
+- Customize default suggetion item and default search engine on `./script.js`
 
 ---
 

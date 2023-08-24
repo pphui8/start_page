@@ -10,6 +10,12 @@ const defaultHistory = [
   { youtube: "https://youtube.com" },
 ];
 
+/*
+change here to set default search Engine
+searchEngine: google | bing
+*/
+let searchEngine = "google";
+
 const searchContainer = document.getElementById("search-container");
 const searchEngineSelect = document.getElementById("engine-icon-container");
 const searchInput = document.getElementById("search-input");
@@ -18,9 +24,6 @@ const bingIcon = document.getElementById("bingIcon");
 const historyContainer = document.getElementById("history-container");
 const historySelector = document.getElementById("history-selector");
 const searchIconContainer = document.getElementById("search-icon-container");
-
-let searchEngine = "bing";
-// [{searchString: Date.now()}]
 let localHistoryItems = [];
 
 // when window is loaded
@@ -28,13 +31,21 @@ window.addEventListener("load", () => {
     // initialize history items from local storage
     localHistoryItems = JSON.parse(localStorage.getItem("historyItems"));
 
-    if (localHistoryItems === null || localHistoryItems === undefined) {
+    if(searchEngine == "google") {
+      googleIcon.setAttribute("style", "display: inline-block");
+      bingIcon.setAttribute("style", "display: none");
+    } else {
+      googleIcon.setAttribute("style", "display: none");
+      bingIcon.setAttribute("style", "display: inline-block");
+    }
+
+    if(localHistoryItems === null || localHistoryItems === undefined) {
       localHistoryItems = [];
     }
 });
 
 searchInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
+    if(event.key === "Enter") {
       search();
     }
 });
@@ -54,7 +65,7 @@ searchInput.addEventListener("input", () => {
 });
 
 
-document.addEventListener("click", (event) => {
+document.addEventListener("click", () => {
   historyContainer.setAttribute("style", "visibility: hidden; opacity: 0");
   searchInput.value = "";
 });
@@ -86,8 +97,8 @@ searchIconContainer.addEventListener("click", () => {
 // functions
 const search = () => {
   const searchString = searchInput.value.trim();
-  // if redundent
   
+  // if redundent
   const isRedundent = localHistoryItems.find(obj => {
     return Object.keys(obj)[0] === searchString
   });
@@ -138,12 +149,8 @@ const searchWithItem = (searchTerms) => {
 const showHistory = () => {
   historySelector.innerHTML = "";
   historyContainer.setAttribute("style", "visibility: visible; opacity: 1");
-  searchEngineUrl = searchEngine === "bing" ? "www.bing.com" : "www.google.com";
 
-  // // 1. add a <li> to history selector (Todo)
-  // const ele = document.createElement("li");
-
-  // 2. insert default history items
+  // insert default history items
   const matchedHistory = defaultHistory.filter((item) => {
     const key = Object.keys(item)[0];
     return key.includes(searchInput.value);
@@ -161,7 +168,7 @@ const showHistory = () => {
     historySelector.append(ele);
   });
 
-  // 3. insert history items from local storage
+  // insert history items from local storage
   const matchedLocalHistory = localHistoryItems.filter((item) => {
     const key = Object.keys(item)[0];
     return key.includes(searchInput.value);
