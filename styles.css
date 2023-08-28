@@ -58,7 +58,6 @@ li {
 .search-container:hover {
     width: 70%;
     background-color: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(10px);
 }
 
 .search-container:hover .engine-icon-container {
@@ -68,7 +67,6 @@ li {
 .search-container:focus-within {
     width: 70%;
     background-color: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(10px);
 }
 
 .search-container:focus-within .engine-icon-container {
