@@ -14,7 +14,7 @@
   <h3 align="center">huihui start</h3>
 
   <p align="center">
-    - huhui start is a lightweight static page for web browser. -
+    - huhui start is a lightweight static start page for web browser. -
     <br />
     <a href="https://pphui8.github.io/start_page">View Demo</a>
   </p>
